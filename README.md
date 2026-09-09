@@ -17,13 +17,11 @@ AIFFEL_Quest_EPA
 │   │   └── README.md
 │   ├── NLP03
 │   │   └── README.md
-│   ├── NLP04
-│   │   └── README.md
-│   ├── NLP05
-│   │   └── README.md
-│   └── NLP06           # Seq2Seq 한국어 번역기
-│       ├── README.md
-│       └── seq2seq.ipynb
+│   ├── NLP04           # Seq2Seq 한국어 번역기
+│   │   ├── README.md
+│   │   └── seq2seq.ipynb
+│   └── NLP05
+│       └── README.md
 └── LLM                 # LLM(Large Language Model) 모듈의 퀘스트
     ├── LLM01
     │   └── README.md

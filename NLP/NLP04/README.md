@@ -1,5 +1,5 @@
 # AIFFEL Campus Online Code Peer Review Templete
-- 코더 : 코더의 이름을 작성하세요.
+- 코더 : Singf
 - 리뷰어 : 리뷰어의 이름을 작성하세요.
 
 
@@ -35,9 +35,24 @@
         - 중요! 잘 작성되었다고 생각되는 부분을 캡쳐해 근거로 첨부
 
 
+# 프로젝트 개요
+- 과제명: Seq2Seq 실습 — 한국어 번역기 만들기
+- 날짜: 2026-09-08
+- 사용 기술: PyTorch, SentencePiece, GRU + Attention
+- 제출 노트북: [`seq2seq.ipynb`](./seq2seq.ipynb)
+
+한영 병렬 코퍼스로 **Attentional Seq2Seq** 번역기를 구현했습니다.
+데이터 로드 → 전처리/코퍼스 구축 → SentencePiece 토크나이저 → Encoder/Attention/AttnDecoder → 학습 루프 → greedy decoding 추론까지 한 노트북에 들어 있습니다.
+
+핵심 포인트:
+- `AttnDecoder.forward`의 teacher forcing에서 `random` import가 빠져 `NameError`가 나던 부분을 수정
+- 학습 중단 시 가중치가 날아가지 않도록 `./Seq2seq/checkpoint.pt` 체크포인트 저장/재개 추가
+- 매 epoch 종료 후 K1~K4 예문을 바로 번역해 품질 변화를 확인
+
+
 # 회고(참고 링크 및 코드 개선)
 ```
-# 리뷰어의 회고를 작성합니다.
-# 코드 리뷰 시 참고한 링크가 있다면 링크와 간략한 설명을 첨부합니다.
-# 코드 리뷰를 통해 개선한 코드가 있다면 코드와 간략한 설명을 첨부합니다.
+# Seq2Seq + Attention을 직접 구현하면서 인코더-디코더 흐름을 코드 단위로 이해했다.
+# 학습이 길어서 체크포인트를 추가했고, loss뿐 아니라 예문 번역으로 품질을 보는 습관을 남겼다.
+# 다음으로는 beam search, BiGRU, Transformer 비교를 해보고 싶다.
 ```
